@@ -1,9 +1,20 @@
 import { Configuration, OpenAIApi } from "openai";
 
+// module.exports = {
+//   webpack: (config) => {
+//     // this will override the experiments
+//     config.experiments = { ...config.experiments, topLevelAwait: true };
+//     // this will just update topLevelAwait property of config.experiments
+//     // config.experiments.topLevelAwait = true 
+//     return config;
+//   },
+// };
+
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
+
 
 export default async function (req, res) {
   if (!configuration.apiKey) {
@@ -22,16 +33,21 @@ export default async function (req, res) {
         message: "Please enter a valid animal",
       }
     });
+    console.log(animal + "here");
     return;
   }
 
   try {
-    const completion = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: generatePrompt(animal),
-      temperature: 0.6,
+    const completion = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {role: "user", content: animal},
+        {role: "system", content: "You are a helpful assistant"}
+        
+      ],
     });
-    res.status(200).json({ result: completion.data.choices[0].text });
+    
+    res.status(200).json(completion.data.choices[0]);
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
@@ -51,7 +67,7 @@ export default async function (req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+  return `Suggest 3 cars
 
 Animal: Cat
 Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
