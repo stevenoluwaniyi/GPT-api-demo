@@ -42,7 +42,7 @@ export default async function (req, res) {
       model: "gpt-3.5-turbo",
       messages: [
         {role: "user", content: animal},
-        {role: "system", content: "You are a helpful assistant"}
+        {role: "system", content: animal}
         
       ],
     });

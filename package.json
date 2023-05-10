@@ -20,5 +20,10 @@
   },
   "experiments": {
   "top-level-await": true
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
