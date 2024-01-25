@@ -1,0 +1,11 @@
+name: link-checker
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: 
+  push:
+    branches:
+      - 'main'
+jobs:
+  print-hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World"
