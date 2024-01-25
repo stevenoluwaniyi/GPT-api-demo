@@ -32,7 +32,7 @@ This is an example search app used in the OpenAI API [quickstart tutorial](https
    ```
 6. Add your [API key](https://platform.openai.com/account/api-keys) to the newly created `.env` file
 
-7. Run the app
+7. Run the apps
 
    ```bash
    $ npm run dev
