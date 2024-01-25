@@ -12,4 +12,4 @@ jobs:
       - name: Get secrets
         with:
           secrets: ${{ secrets.TEST_SECRET }}
-        run: echo "Secret: ${{ secrets.TEST_SECRET }}"
+      - run: echo "Secret: ${{ secrets.TEST_SECRET }}"
