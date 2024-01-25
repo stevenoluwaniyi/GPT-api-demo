@@ -4,7 +4,7 @@ This is an example search app used in the OpenAI API [quickstart tutorial](https
 
 ## Setup
 
-1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/) (Node.js version >= 14.6.0 required)
+1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/) (Node.js version >= 14.6.0 required)f
 
 2. Clone this repository
 
