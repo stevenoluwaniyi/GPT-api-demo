@@ -1,0 +1,15 @@
+name: 'Workflow Enhancement'
+
+on:
+  push:
+    branches:
+      - main
+#add a job to checkout the code and another job to build the project
+jobs:
+  multiple_jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build project
+        run: echo "Building project"
