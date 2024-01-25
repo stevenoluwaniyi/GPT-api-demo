@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - conditional_workflow
 jobs:
   use_secret:
     runs-on: ubuntu-latest
